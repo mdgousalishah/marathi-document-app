@@ -2,6 +2,7 @@
 
 import React from 'react';
 import EditableText from './EditableText';
+import { toSafeAssetUrl } from '@/utils/officialAssets';
 
 export interface LetterheadProps {
   image: string;
@@ -30,9 +31,7 @@ export default function OfficialLetterhead({
   onUpdateDate,
 }: LetterheadProps) {
   // Ensure the image URL handles spaces cleanly for both web rendering and canvas/PDF export
-  const encodedImage = image.startsWith('/') || image.startsWith('http')
-    ? encodeURI(decodeURI(image))
-    : image;
+  const encodedImage = toSafeAssetUrl(image);
 
   return (
     <header className="w-full mb-3 bg-transparent border-none p-0 m-0 shadow-none">

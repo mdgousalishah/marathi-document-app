@@ -5,7 +5,7 @@ import { LetterDocument, NumberedPoint } from '@/types/document';
 import { Plus, Trash2, Calendar, User, FileText, Send, Building, Phone, ListOrdered, Mic, ChevronDown, ChevronUp, Stamp, Upload, Check, Image as ImageIcon } from 'lucide-react';
 import { getTodayFormatted } from '@/utils/marathiNumbering';
 import VoiceTypingButton from './VoiceTypingButton';
-import { OFFICIAL_STAMPS_PRESETS, OfficialStamp } from '@/utils/officialAssets';
+import { OFFICIAL_STAMPS_PRESETS, OfficialStamp, toSafeAssetUrl } from '@/utils/officialAssets';
 import {
   getUserUploadedStamps,
   saveUserUploadedStamp,
@@ -702,7 +702,7 @@ export default function EditorForm({ document: doc, onChange }: EditorFormProps)
                     <div className="w-full h-14 flex items-center justify-center bg-slate-50/50 rounded-lg p-1">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={stamp.imageUrl}
+                        src={toSafeAssetUrl(stamp.imageUrl)}
                         alt={stamp.name}
                         className="max-h-full max-w-full object-contain"
                       />
@@ -740,7 +740,7 @@ export default function EditorForm({ document: doc, onChange }: EditorFormProps)
                     <div className="w-full h-14 flex items-center justify-center bg-slate-50/50 rounded-lg p-1">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={userStamp.imageUrl}
+                        src={toSafeAssetUrl(userStamp.imageUrl)}
                         alt={userStamp.name}
                         className="max-h-full max-w-full object-contain"
                       />

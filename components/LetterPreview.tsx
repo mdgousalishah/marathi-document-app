@@ -4,7 +4,7 @@ import React from 'react';
 import { LetterDocument, Letterhead, NumberedPoint } from '@/types/document';
 import { toDevanagariNumber } from '@/utils/marathiNumbering';
 import OfficialLetterhead from './OfficialLetterhead';
-import { officialLetterheads } from '@/utils/officialAssets';
+import { officialLetterheads, toSafeAssetUrl } from '@/utils/officialAssets';
 import EditableText from './EditableText';
 
 interface LetterPreviewProps {
@@ -677,7 +677,7 @@ export default function LetterPreview({
                     <div className="my-1 flex justify-end">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={doc.stampUrl}
+                        src={toSafeAssetUrl(doc.stampUrl)}
                         alt={doc.stampName || 'अधिकृत शिक्का / स्वाक्षरी'}
                         style={{ width: `${doc.stampWidth || 120}px` }}
                         className="max-h-20 object-contain drop-shadow-xs block bg-transparent"

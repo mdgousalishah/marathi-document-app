@@ -1,5 +1,19 @@
 import { Letterhead } from '@/types/document';
 
+/**
+ * Safely encodes a public asset URL (e.g. replacing literal spaces with %20)
+ * without throwing on malformed percent characters or double-encoding already encoded URLs.
+ */
+export function toSafeAssetUrl(url?: string | null): string {
+  if (!url) return '';
+  if (url.startsWith('data:') || url.startsWith('blob:')) return url;
+
+  // Split query/hash if present
+  const [base, query] = url.split('?');
+  const safeBase = base.replace(/ /g, '%20');
+  return query !== undefined ? `${safeBase}?${query}` : safeBase;
+}
+
 export interface OfficialStamp {
   id: string;
   name: string;              // Marathi label

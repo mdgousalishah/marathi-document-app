@@ -15,7 +15,7 @@ import {
   ShieldCheck,
   User,
 } from 'lucide-react';
-import { officialLetterheads, KAMEL_EDUCATION_SOCIETY_INSTITUTIONS } from '@/utils/officialAssets';
+import { officialLetterheads, KAMEL_EDUCATION_SOCIETY_INSTITUTIONS, toSafeAssetUrl } from '@/utils/officialAssets';
 import { SocietyUser } from '@/utils/storage';
 
 interface SocietyProfileProps {
@@ -169,7 +169,7 @@ export default function SocietyProfile({
             <div className="p-2 bg-slate-100/50 border-b border-slate-200">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={officialLetterheads.society.image}
+                src={toSafeAssetUrl(officialLetterheads.society.image)}
                 alt="Kamel Education Society Letterhead"
                 className="w-full h-24 object-contain bg-white rounded border border-slate-200"
               />
@@ -196,7 +196,7 @@ export default function SocietyProfile({
             <div className="p-2 bg-slate-100/50 border-b border-slate-200">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={officialLetterheads.school.image}
+                src={toSafeAssetUrl(officialLetterheads.school.image)}
                 alt="Kamel Urdu High School Letterhead"
                 className="w-full h-24 object-contain bg-white rounded border border-slate-200"
               />
@@ -223,7 +223,7 @@ export default function SocietyProfile({
             <div className="p-2 bg-slate-100/50 border-b border-slate-200">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={officialLetterheads.ashoorkhana.image}
+                src={toSafeAssetUrl(officialLetterheads.ashoorkhana.image)}
                 alt="Ashoorkhana Naale Hyder Letterhead"
                 className="w-full h-24 object-contain bg-white rounded border border-slate-200"
               />

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { X, Plus, Trash2, Check, Heading, Image as ImageIcon } from 'lucide-react';
 import { Letterhead } from '@/types/document';
 import { getSavedLetterheads, saveLetterheadToStorage, deleteLetterheadFromStorage } from '@/utils/storage';
-import { officialLetterheads } from '@/utils/officialAssets';
+import { officialLetterheads, toSafeAssetUrl } from '@/utils/officialAssets';
 
 interface LetterheadModalProps {
   isOpen: boolean;
@@ -158,7 +158,7 @@ export default function LetterheadModal({
                       <div className="w-full bg-transparent overflow-hidden mb-2 flex items-center justify-center">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
-                          src={previewImage}
+                          src={toSafeAssetUrl(previewImage)}
                           alt={lh.title}
                           className="w-full max-h-20 object-contain block"
                         />
@@ -338,7 +338,7 @@ export default function LetterheadModal({
                   >
                     <div className="w-6 h-6 rounded bg-slate-100 flex items-center justify-center overflow-hidden shrink-0">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src="/letterheads/Kamel_Education_Society_Later_Pad_image1.png" alt="KES" className="max-w-full max-h-full" />
+                      <img src={toSafeAssetUrl('/letterheads/Kamel_Education_Society_Later_Pad_image1.png')} alt="KES" className="max-w-full max-h-full" />
                     </div>
                     <span className="truncate">कामेल सोसायटी</span>
                   </button>
@@ -354,7 +354,7 @@ export default function LetterheadModal({
                   >
                     <div className="w-6 h-6 rounded bg-slate-100 flex items-center justify-center overflow-hidden shrink-0">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src="/letterheads/Later_Pad_AshoorKhana_Naale_Hyder_image1.png" alt="ANH" className="max-w-full max-h-full" />
+                      <img src={toSafeAssetUrl('/letterheads/Later_Pad_AshoorKhana_Naale_Hyder_image1.png')} alt="ANH" className="max-w-full max-h-full" />
                     </div>
                     <span className="truncate">आशूरखाना लोगो</span>
                   </button>
