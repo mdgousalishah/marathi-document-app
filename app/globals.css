@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-devanagari-sans {
+    font-family: 'Noto Sans Devanagari', 'Mukta', system-ui, sans-serif;
+  }
+  .font-devanagari-serif {
+    font-family: 'Noto Serif Devanagari', serif;
+  }
+  .font-mukta {
+    font-family: 'Mukta', sans-serif;
+  }
+}
+
+/* Custom A4 Page and Print CSS */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .a4-page-sheet, .a4-page-print {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    min-height: 297mm !important;
+    max-height: 297mm !important;
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+}
+
+/* A4 Page sheet styling */
+.a4-page-sheet {
+  width: 210mm;
+  min-height: 297mm;
+  height: 297mm;
+  max-height: 297mm;
+  background: #ffffff;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+/* Official Letterhead Divider */
+.letterhead-divider {
+  width: 100%;
+  border-top: 1px solid #000000;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+

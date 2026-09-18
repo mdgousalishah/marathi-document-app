@@ -1,0 +1,72 @@
+{
+  "entities": {
+    "Document": {
+      "title": "LetterDocument",
+      "description": "A Marathi administrative official letter or document created by the user.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "templateId": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" },
+        "outwardNo": { "type": "string" },
+        "date": { "type": "string" },
+        "topNote": { "type": "string" },
+        "subject": { "type": "string" },
+        "greeting": { "type": "string" },
+        "body": { "type": "string" },
+        "closing": { "type": "string" },
+        "useLetterhead": { "type": "boolean" },
+        "stampUrl": { "type": "string" }
+      },
+      "required": ["id", "title", "createdAt", "updatedAt"]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with institution preferences and sender presets.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["id"]
+    },
+    "SavedFile": {
+      "title": "SavedFileDocument",
+      "description": "Uploaded or scanned document file metadata and cloud storage references.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "fileType": { "type": "string" },
+        "date": { "type": "string" },
+        "updatedAt": { "type": "number" },
+        "size": { "type": "string" },
+        "storageUrl": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "name", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile documents"
+    },
+    "/users/{userId}/documents/{docId}": {
+      "schema": "Document",
+      "description": "Saved official letters belonging to the user"
+    },
+    "/users/{userId}/files/{fileId}": {
+      "schema": "SavedFile",
+      "description": "Uploaded PDFs, Word documents, scans and images belonging to the user"
+    }
+  }
+}

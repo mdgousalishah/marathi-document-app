@@ -1,0 +1,8 @@
+{
+  "name": "Marathi Patra",
+  "description": "मराठी पत्र लेखन - Official Marathi letter writing, formatting, saving and PDF/Word export tool.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
